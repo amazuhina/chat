@@ -35,20 +35,27 @@ main {
     -webkit-box-shadow: 13px 16px 10px -1px rgba(34, 60, 80, 0.33);
     -moz-box-shadow: 13px 16px 10px -1px rgba(34, 60, 80, 0.33);
     box-shadow: 13px 16px 10px -1px rgba(34, 60, 80, 0.33);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
 
 }
+.message {
+    display: none;
+    flex-direction: column;
+    align-items: flex-end;
+}
 
-.send {
+.text {
     border: 1px solid #172238;
     background-color: white;
     width: 65%;
     margin: 0.5em;
     border-radius: 3px;
     height: 2em;
+}
 
+.time {
+    text-align: right;
+    color: grey;
+    font-size: 0.8em;
 }
 
 .send-message {
@@ -65,7 +72,7 @@ main {
     background-color: transparent;
 }
 
-.text-message {
+.input-message {
     width: 95%;
     height: 100px;
     background-color: #fffffff5;
