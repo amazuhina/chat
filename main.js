@@ -43,7 +43,6 @@ button.addEventListener('click', function (event) {
     $time.textContent = optionsDate
     input.value = ""
     anotherMessage()
-
 })
 
 
