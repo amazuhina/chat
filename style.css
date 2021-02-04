@@ -35,10 +35,10 @@ main {
     -webkit-box-shadow: 13px 16px 10px -1px rgba(34, 60, 80, 0.33);
     -moz-box-shadow: 13px 16px 10px -1px rgba(34, 60, 80, 0.33);
     box-shadow: 13px 16px 10px -1px rgba(34, 60, 80, 0.33);
-
+    overflow-y: scroll;
 }
 .message {
-    display: none;
+    display: flex;
     flex-direction: column;
     align-items: flex-end;
 }
@@ -103,4 +103,18 @@ footer {
     text-align: center;
     color: white;
     padding: 0.3em;
+}
+
+
+.dialogue::-webkit-scrollbar {
+    width: .5em;
+}
+
+.dialogue::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0);
+}
+
+.dialogue::-webkit-scrollbar-thumb {
+    background-color: #666b7a;
+    outline: 1px solid slategrey;
 }

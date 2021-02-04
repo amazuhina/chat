@@ -1,22 +1,19 @@
 
+
 //определяем кнопку
-let button = document.querySelector('.button')
+let $button = document.querySelector('.button')
 
-//определяем данные инпута
-let input = document.querySelector('.input-message')
+//определяем окно диалога
+let $dialogue = document.querySelector('.dialogue')
+let $input = document.querySelector('.input-message')
 
-//определяем блок сообщения в окне диалога
-let textMessage = document.querySelector('.text')
 
-//определяем блок для времени
-let $time = document.querySelector('.time')
-
-//функция добавлять еще один блок сообщения к старым
-function anotherMessage (){
-    let newDiv ="<div class='message'><div class='text'></div><div class='time'></div></div>"
-    document.querySelector('.message').innerHTML += newDiv
+function newDiv(message, time) {
+    return '<div class="message"><div class="text">'+message+'</div><div class="time">'+time+'</div></div>'
 }
-//Создаем нужный формат времени
+
+
+function sendMessage() {
     let date = new Date()
     let options = {
         year: 'numeric',
@@ -27,29 +24,33 @@ function anotherMessage (){
     }
     let optionsDate = date.toLocaleString("ru", options)
 
-// Показать сообщение
-function showMessage() {
-    let noShow = document.querySelector('.message')
-    noShow.style.display = 'block'
+    let message = $input.value
+    let time = optionsDate
 
+    $dialogue.innerHTML += newDiv(message, time)
+
+    // clear input
+    $input.value = ""
 }
 
-//функция после клика вставлять в блок сообщения инпут
 
-
-button.addEventListener('click', function (event) {
-    showMessage()
-    textMessage.textContent = input.value
-    $time.textContent = optionsDate
-    input.value = ""
-    anotherMessage()
+$input.addEventListener('keydown', function (event) {
+    if (event.key == 'Enter') {
+        sendMessage()
+    }
 })
 
 
+//связка
+$button.addEventListener('click', function (event) {
+    sendMessage()
+})
 
-/* вопросики:
-   1) ну в целом чат не работает как должен
-   2) как переносить строчку в блоке месседж и инпуте, если сообщение длинное
-   3)нет полосы прокрутки
-   4) див с месседж ушел влево зачем то
+// как будто хочется диву месседж присвоить еще один клас
+
+/*
+вопросики:
+1. нашла только overflow-y: scroll;
+2. textarea некрасиво смотрится
+3. гитхаб =(
  */
